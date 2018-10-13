@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2018_10_13_105008) do
     t.string "author_ip", null: false
     t.bigint "author_id"
     t.float "average_rating", default: 1.0, null: false
+    t.integer "lock_version", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_posts_on_author_id"

@@ -9,12 +9,10 @@ module FormObjects
         end
       end
 
-      required(:user).schema do
-        required(:title).filled(:str?)
-        required(:body).filled(:str?)
-        required(:author_ip).filled(:str?, :author_ip_format_valid?)
-        required(:login).filled(:str?)
-      end
+      required(:title).filled(:str?)
+      required(:body).filled(:str?)
+      required(:author_ip).filled(:str?, :author_ip_format_valid?)
+      required(:login).filled(:str?)
     end
   end
 end

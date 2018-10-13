@@ -8,6 +8,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.belongs_to :author, foreign_key: true
 
       t.float :average_rating, null: false, default: 1
+      t.integer :lock_version, null: false
 
       t.timestamps
     end

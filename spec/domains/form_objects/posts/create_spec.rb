@@ -3,12 +3,10 @@ describe ::FormObjects::Posts::Create do
 
   let(:base_attributes) do
     {
-      user: {
-        title: 'some title',
-        body: 'some body',
-        author_ip: '1.1.1.1',
-        login: 'some login'
-      }
+      title: 'some title',
+      body: 'some body',
+      author_ip: '1.1.1.1',
+      login: 'some login'
     }
   end
 
@@ -27,9 +25,7 @@ describe ::FormObjects::Posts::Create do
   end
 
   context 'when author_ip invalid format' do
-    let(:attributes) do
-      base_attributes[:user].merge(author_ip: 'wrong_format_ip')
-    end
+    let(:attributes) { base_attributes.merge(author_ip: 'wrong_format_ip') }
 
     it { is_expected.not_to be_success }
   end

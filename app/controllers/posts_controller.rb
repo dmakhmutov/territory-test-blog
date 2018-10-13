@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     form = ::FormObjects::Posts::Create.call(post_params)
 
     if form.success?
-      post = Commands::Posts::Create.new(form.output[:user]).call
+      post = Commands::Posts::Create.new(form.output).call
 
       render json: post, status: :created
     else
@@ -14,8 +14,14 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.permit!.to_h.tap do |param|
-      param[:user].merge!(author_ip: request.remote_ip)
-    end
+    params
+      .require(:user)
+      .permit(
+        :title,
+        :body,
+        :login
+      ).to_h.tap do |param|
+        param.merge!(author_ip: request.remote_ip)
+      end
   end
 end
