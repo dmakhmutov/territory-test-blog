@@ -1,7 +1,30 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'ffaker'
+
+100.times do
+  Author.create(login: FFaker::Internet.email)
+end
+
+ips = 100.times.map { FFaker::Internet.ip_v4_address }
+authors = Author.all
+
+posts = begin
+  arr = []
+  200_000.times do |sequence|
+    author = authors.sample
+    post_hash = {
+      title: FFaker::Lorem.word,
+      body: FFaker::Lorem.sentence,
+      author_id: author.id,
+      author_login: author.login,
+      author_ip: ips.sample,
+      average_rating: (1..5).to_a.sample,
+      lock_version: sequence
+    }
+
+    arr << post_hash
+  end
+
+  arr
+end
+
+::Post.import!(posts)

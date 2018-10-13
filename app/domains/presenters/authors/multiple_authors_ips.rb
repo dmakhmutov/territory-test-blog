@@ -6,7 +6,7 @@ module Presenters
       end
 
       def ips_with_author_array
-        @ips.inject([]) { |array, ip_address| array << [ip_address.ip.to_s, ip_address.author_logins] }
+        @ips.inject([]) { |array, ip_address| array << [ip_address.author_ip, ip_address.author_logins] }
       end
     end
   end

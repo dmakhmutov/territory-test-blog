@@ -10,6 +10,8 @@ gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'dry-validation'
+gem 'ffaker'
+gem 'activerecord-import'
 
 group :development, :test do
   gem 'pry-byebug'
@@ -25,7 +27,6 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
-  gem 'ffaker'
   gem 'rspec-its'
   gem 'rspec-json_expectations'
   gem 'rspec-rails'

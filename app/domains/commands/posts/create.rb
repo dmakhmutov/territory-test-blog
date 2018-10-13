@@ -22,7 +22,7 @@ module Commands
       end
 
       def create_post(author)
-        Post.create!(author: author, **@post_params)
+        Post.create!(author: author, author_login: @login, **@post_params)
       end
     end
   end

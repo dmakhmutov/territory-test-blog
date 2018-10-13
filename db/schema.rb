@@ -26,12 +26,14 @@ ActiveRecord::Schema.define(version: 2018_10_13_105008) do
     t.string "title", null: false
     t.string "body", null: false
     t.string "author_ip", null: false
+    t.string "author_login", null: false
     t.bigint "author_id"
     t.float "average_rating", default: 1.0, null: false
     t.integer "lock_version", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_posts_on_author_id"
+    t.index ["author_ip", "author_login"], name: "index_posts_on_author_ip_and_author_login"
     t.index ["average_rating"], name: "index_posts_on_average_rating", order: :desc
   end
 
