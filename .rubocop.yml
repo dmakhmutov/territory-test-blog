@@ -1,0 +1,64 @@
+require: rubocop-rspec
+
+Rails:
+  Enabled: true
+
+AllCops:
+  TargetRubyVersion: 2.5.1
+  Exclude:
+    - 'db/seeds/'
+    - 'db/views/'
+    - 'db/seeds.rb'
+    - 'db/schema.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  ExcludedMethods:
+    - before
+    - configure
+    - context
+    - define
+    - describe
+    - example
+    - example_request
+    - factory
+    - feature
+    - get
+    - group
+    - included
+    - it_behaves_like
+    - namespace
+    - resource
+    - scenario
+    - shared_examples
+    - task
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*'
+
+Naming/MemoizedInstanceVariableName:
+  EnforcedStyleForLeadingUnderscores: required
