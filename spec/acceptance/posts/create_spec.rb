@@ -13,6 +13,15 @@ resource 'Posts' do
 
       example_request 'Creating a post' do
         expect(status).to eq(201)
+        expect(response_body).to include_json(
+          {
+            title: title,
+            body: body,
+            author_ip: '127.0.0.1',
+            author_login: login,
+            average_rating: 1.0
+          }
+        )
       end
     end
 

@@ -10,7 +10,7 @@ module FormObjects
       end
 
       required(:post_id, :integer).filled(:post_present?)
-      required(:mark, :integer).filled(inclusion?: ('1'..'5').to_a)
+      required(:mark, :integer).filled(included_in?: ('1'..'5').to_a)
     end
   end
 end
