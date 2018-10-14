@@ -1,10 +1,10 @@
 require 'ffaker'
 
 100.times do
-  Author.create(login: FFaker::Internet.email)
+  Author.create(login: FFaker::Internet.user_name)
 end
 
-ips = 100.times.map { FFaker::Internet.ip_v4_address }
+ips = Array.new(100) { FFaker::Internet.ip_v4_address }
 authors = Author.all
 
 posts = begin
